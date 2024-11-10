@@ -11,15 +11,15 @@ export const searchMoviesByTitle = async (title) => {
   if (isInvalidString(title)) throw "title argument must be valid string!";
 
   const SEARCH_URL = `${API_URL}&s=${title}`;
-  const searchResults = await axios.get(SEARCH_URL);
+  const { data: searchResults } = await axios.get(SEARCH_URL);
 
-  if (!searchResults.Response) return searchResults;
+  if (searchResults.Response === "False") return searchResults;
 
-  const totalPages = Math.ceil(searchResults.totalResults / 10);
+  const totalPages = Math.ceil(parseInt(searchResults.totalResults) / 10);
   const maxRequestPage = totalPages > 5 ? 5 : totalPages;
   for (let i = 2; i <= maxRequestPage; i++) {
-    const { Search } = await axios.get(`${SEARCH_URL}&page=${i}`);
-    searchResults.Search.concat(Search);
+    const { data } = await axios.get(`${SEARCH_URL}&page=${i}`);
+    searchResults.Search = searchResults.Search.concat(data.Search);
   }
 
   return searchResults;
