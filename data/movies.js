@@ -38,5 +38,3 @@ export const getMovieById = async (id) => {
 
   return searchResults;
 };
-
-export { searchMoviesByTitle, getMovieById };
