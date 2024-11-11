@@ -4,8 +4,11 @@
     <main>
     <article>
         <h1 class="title_header">{{pageTitle}}</h1>
-        {{!-- make defualt no_image.jpeg --}}
+        {{#if data.isBadImage}}
+        <img class="poster" alt="No Image" src="http://localhost:3000/public/no_image.jpeg">
+        {{else}}
         <img class="poster" alt="{{Title}} Poster" src={{data.Poster}}>
+        {{/if}}
         <h2>Plot</h2>
         <p id="summary">{{data.Plot}}</p>
         <section>

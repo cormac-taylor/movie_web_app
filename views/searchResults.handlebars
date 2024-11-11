@@ -11,12 +11,15 @@
             <a class="movie-title" href="/getmovie/{{imdbID}}">
             {{Title}}
             <br>
-            {{!-- make defualt no_image.jpeg --}}
+            {{#if isBadImage}}
+            <img class="searchResultImage" alt="No Image" src="http://localhost:3000/public/no_image.jpeg">
+            {{else}}
             <img
                 class="searchResultImage"
                 alt="{{Title}} Poster"
-                src={{Poster}}
-            >
+                src={{Poster}}>
+            {{/if}}
+
             </a>
         </li>
         {{/each}}

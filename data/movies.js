@@ -22,6 +22,10 @@ export const searchMoviesByTitle = async (title) => {
     searchResults.Search = searchResults.Search.concat(data.Search);
   }
 
+  for(let i = 0; i < searchResults.Search.length; i++){
+    searchResults.Search[i].isBadImage = searchResults.Search[i].Poster === "N/A"
+  } 
+
   return searchResults;
 };
 
@@ -30,6 +34,8 @@ export const getMovieById = async (id) => {
 
   const SEARCH_URL = `${API_URL}&i=${id}`;
   const { data: searchResults } = await axios.get(SEARCH_URL);
+
+  searchResults.isBadImage = searchResults.Poster === "N/A"
 
   return searchResults;
 };
