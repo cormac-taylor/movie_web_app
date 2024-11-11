@@ -29,12 +29,7 @@ export const getMovieById = async (id) => {
   if (isInvalidString(id)) throw "id argument must be valid string!";
 
   const SEARCH_URL = `${API_URL}&i=${id}`;
-  const searchResults = await axios.get(SEARCH_URL);
-
-  if (!searchResults.Response) {
-    delete searchResults.Error;
-    return searchResults;
-  }
+  const { data: searchResults } = await axios.get(SEARCH_URL);
 
   return searchResults;
 };
