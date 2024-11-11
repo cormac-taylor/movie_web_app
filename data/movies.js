@@ -13,7 +13,7 @@ export const searchMoviesByTitle = async (title) => {
   const SEARCH_URL = `${API_URL}&s=${title}`;
   const { data: searchResults } = await axios.get(SEARCH_URL);
 
-  if (searchResults.Response === "False") return searchResults;
+  if (searchResults.Response !== "True") return searchResults;
 
   const totalPages = Math.ceil(parseInt(searchResults.totalResults) / 10);
   const maxRequestPage = totalPages > 5 ? 5 : totalPages;

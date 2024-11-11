@@ -35,7 +35,7 @@ router.route("/moviesearch").post(async (req, res) => {
       searchByTitle,
       movies: searchResults.Search,
     });
-    if (searchResults.Response === "False") {
+    if (searchResults.Response !== "True") {
       res.status(404);
       return;
     }
@@ -58,7 +58,7 @@ router.route("/getmovie/:id").get(async (req, res) => {
 
     const searchResults = await getMovieById(movieID);
 
-    if (searchResults.Response === "False") {
+    if (searchResults.Response !== "True") {
       res.render("error", {
         pageTitle: "Error",
         errorMessage: "No movie found with that id!",
