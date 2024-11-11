@@ -6,6 +6,7 @@ import { Router } from "express";
 const router = Router();
 import { searchMoviesByTitle, getMovieById } from "../data/movies.js";
 import { isInvalidString } from "../helpers.js";
+import { error } from "console";
 
 router.route("/").get(async (_, res) => {
   try {
@@ -16,25 +17,25 @@ router.route("/").get(async (_, res) => {
 });
 
 router.route("/moviesearch").post(async (req, res) => {
-  //code here for POST this is where your form will be submitting searchByTitle and then call your data function passing in the searchByTitle and then rendering the search results of up to 50 Movies.
   try {
     if (isInvalidString(req.body.searchByTitle)) {
-      res.status(400).json({ error: "search value must be a valid string!" });
+      res.render("error", {pageTitle: "Error: Not Found", errorMessage: "You must enter a search term!"})
+      res.status(400);
       return;
     }
-    const searchedMovieTitle = req.body.searchByTitle.trim();
+    const searchByTitle = req.body.searchByTitle.trim();
 
-    const searchResults = await searchMoviesByTitle(searchedMovieTitle);
-    if (!searchResults || searchResults.Response === "False") {
-      res.status(404).json({ error: "Not found!" });
-      return;
-    }
+    const searchResults = await searchMoviesByTitle(searchByTitle);
 
     res.render("searchResults", {
+      noErrors: searchResults.Response === "True",
       pageTitle: "Movies Found",
-      searchedMovieTitle,
+      searchByTitle,
       movies: searchResults.Search,
     });
+    if (searchResults.Response === "False")
+      res.status(404)
+      return;
   } catch (e) {
     res.status(500).json({ error: e });
   }

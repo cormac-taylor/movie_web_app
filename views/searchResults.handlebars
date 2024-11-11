@@ -1,28 +1,27 @@
-<div id="search-header-title">
-  <h1>{{pageTitle}}</h1>
-  <h2>{{searchedMovieTitle}}</h2>
-</div>
+    <a href="/">
+        Search for Another Movie
+    </a>
+{{#if noErrors}}
+    <h1>{{pageTitle}}</h1>
+    <h2>{{searchByTitle}}</h2>
+    <main>
+    <ol>
+        {{#each movies}}
+        <li>
+            <a href="/getmovie/{{imdbID}}">
+            {{Title}}
+            <br>
+            <img
+                class="searchResultImage"
+                alt="{{Title}} Poster"
+                src={{Poster}}
+            >
+            </a>
+        </li>
+        {{/each}}
+    </ol>
+    </main>
+{{else}}
+    <p class="movie-not-found">We're sorry, but no results were found for {{searchByTitle}}.</p>
+{{/if}}
 
-<div id="search-header-home">
-  <a href="/">
-    Search for Another Movie
-  </a>
-</div>
-
-<main>
-  <ol>
-    {{#each movies}}
-      <li>
-        <a href="/getmovie/{{imdbID}}">
-          {{Title}}
-          <br>
-          <img
-            class="searchResultImage"
-            alt="{{Title}} Poster"
-            src={{Poster}}
-          >
-        </a>
-      </li>
-    {{/each}}
-  </ol>
-</main>
