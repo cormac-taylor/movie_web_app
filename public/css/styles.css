@@ -4,9 +4,6 @@
  * TO DO:
  * Conditional images (if none then default) no_image.jpeg
  * CSS
-    - id "summary" gray
-    - strong tag underlined and bold
-    - class "my_coolratings_table" black boarders
     - class "content" center
     - class "title_header" italized
     - class "to_home" black
@@ -27,4 +24,19 @@
 #summary {
     color: gray;
     font-style: italic;
+}
+
+strong {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+table,
+tr,
+td {
+  border: 1px solid black;
+}
+
+.content {
+    text-align: center;
 }
