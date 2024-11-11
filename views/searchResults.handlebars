@@ -2,13 +2,13 @@
         Search for Another Movie
     </a>
 {{#if noErrors}}
-    <h1>{{pageTitle}}</h1>
-    <h2 id="searchByTitle">{{searchByTitle}}</h2>
+    <h1 id="title-card">{{pageTitle}}</h1>
+    <h2 id="searchByTitleToken">for "{{searchByTitle}}"</h2>
     <main>
     <ol>
         {{#each movies}}
         <li>
-            <a href="/getmovie/{{imdbID}}">
+            <a class="movie-title" href="/getmovie/{{imdbID}}">
             {{Title}}
             <br>
             {{!-- make defualt no_image.jpeg --}}

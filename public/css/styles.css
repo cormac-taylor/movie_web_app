@@ -1,19 +1,5 @@
-/*This file should have 10 CSS rulesets */
-
-/* 
- * TO DO:
- * Conditional images (if none then default) no_image.jpeg
- * CSS
-    - class "content" center
-    - class "title_header" italized
-    - class "to_home" black
-    - class "movie-not-found" grey and italized
-    - id "searchByTitle" italized
-*/
-
 .searchResultImage {
-    width: 75px;
-    height: 117px;
+    max-width: 5%;
 }
 
 .error {
@@ -39,4 +25,67 @@ td {
 
 .content {
     text-align: center;
+}
+
+.title_header {
+    color: black;
+    font-style: italic;
+}
+
+.to_home {
+    color: black;
+}
+
+.movie-not-found {
+    color: gray;
+    font-style: italic;
+}
+
+#searchByTitle {
+    font-style: italic;
+}
+
+#home-div {
+    width: 50%;
+    margin:0 auto;
+}
+
+#searchByTitleLabel {
+    color: gray;
+    font-style: italic;
+}
+
+#submitInput {
+    background-color: white;
+    color: black;
+}
+
+#searchByTitle {
+    color: black;
+    font-style: normal;
+}
+
+#home_title {
+    border: 1px solid black;
+}
+
+#searchByTitleToken {
+    color: gray;
+    font-style: italic;
+}
+
+.movie-title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    color: black;
+    font-size: large;
+}
+
+#title-card {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.poster {
+    max-width: 20%;
 }

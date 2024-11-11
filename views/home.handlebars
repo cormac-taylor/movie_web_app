@@ -1,22 +1,24 @@
-    <h1 class="content">{{pageTitle}}</h1>
-    <main class="content">
-      <p id="site_description">
-        This sites allows you to search up your favorite movies! You are able to
-        search movies by their title and any matches will result ranked by relivance
-        to your search. Then you can look more deeply at the results by by clicking
-        one of the results from your search.
-      </p>
-      <form action="/moviesearch" method="POST" class="search-form">
-        <label for="searchByTitle">
-          Post Title
-        </label>
-        <input
-          type="text"
-          id="searchByTitle"
-          name="searchByTitle"
-          placeholder="Movie Title"
-          value="{{search.title}}"
-          class="search-input">
-        <input type="submit">
-      </form>
-    </main>
+    <div id="home-div">
+      <h1 id="home_title" class="content">{{pageTitle}}</h1>
+      <main class="content">
+        <p id="site_description">
+          This sites allows you to search up your favorite movies! You are able to
+          search movies by their title and any matches will result ranked by relivance
+          to your search. Then you can look more deeply at the results by by clicking
+          one of the results from your search.
+        </p>
+        <form action="/moviesearch" method="POST" class="search-form">
+          <label id="searchByTitleLabel" for="searchByTitle">
+            Search Movie:
+          </label>
+          <input
+            type="text"
+            id="searchByTitle"
+            name="searchByTitle"
+            placeholder="Movie Title"
+            value="{{search.title}}"
+            class="search-input">
+          <input id="submitInput" type="submit">
+        </form>
+      </main>
+    </div>
