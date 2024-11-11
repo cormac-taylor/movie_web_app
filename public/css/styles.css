@@ -4,5 +4,27 @@
  * TO DO:
  * Conditional images (if none then default) no_image.jpeg
  * CSS
-    - I found a good width is 75px and a good height is 117px.
+    - id "summary" gray
+    - strong tag underlined and bold
+    - class "my_coolratings_table" black boarders
+    - class "content" center
+    - class "title_header" italized
+    - class "to_home" black
+    - class "movie-not-found" grey and italized
+    - id "searchByTitle" italized
 */
+
+.searchResultImage {
+    width: 75px;
+    height: 117px;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+}
+
+#summary {
+    color: gray;
+    font-style: italic;
+}

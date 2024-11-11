@@ -1,12 +1,13 @@
-    <a href="/">
-    Search for Another Movie
+    <a class="to_home" href="/">
+        Search for Another Movie
     </a>
     <main>
-    <article>
-        <h1>{{pageTitle}}</h1>
+    <article class="content">
+        <h1 class="title_header">{{pageTitle}}</h1>
+        {{!-- make defualt no_image.jpeg --}}
         <img alt="{{Title}} Poster" src={{data.Poster}}>
         <h2>Plot</h2>
-        <p>{{data.Plot}}</p>
+        <p id="summary">{{data.Plot}}</p>
         <section>
         <h3>Info</h3>
         <dl>

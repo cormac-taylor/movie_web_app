@@ -1,9 +1,9 @@
-    <a href="/">
+    <a class="to_home" href="/">
         Search for Another Movie
     </a>
 {{#if noErrors}}
     <h1>{{pageTitle}}</h1>
-    <h2>{{searchByTitle}}</h2>
+    <h2 id="searchByTitle">{{searchByTitle}}</h2>
     <main>
     <ol>
         {{#each movies}}
@@ -11,6 +11,7 @@
             <a href="/getmovie/{{imdbID}}">
             {{Title}}
             <br>
+            {{!-- make defualt no_image.jpeg --}}
             <img
                 class="searchResultImage"
                 alt="{{Title}} Poster"
@@ -21,6 +22,9 @@
         {{/each}}
     </ol>
     </main>
+    <a class="to_home" href="/">
+        Search for Another Movie
+    </a>
 {{else}}
     <p class="movie-not-found">We're sorry, but no results were found for {{searchByTitle}}.</p>
 {{/if}}
