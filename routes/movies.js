@@ -5,7 +5,7 @@
 import { Router } from "express";
 const router = Router();
 import { searchMoviesByTitle, getMovieById } from "../data/movies.js";
-import { isInvalidString } from "../helpers.js";
+import { isInvalidString, isInvalidID } from "../helpers.js";
 
 router.route("/").get(async (_, res) => {
   try {
@@ -46,7 +46,7 @@ router.route("/moviesearch").post(async (req, res) => {
 
 router.route("/getmovie/:id").get(async (req, res) => {
   try {
-    if (isInvalidString(req.params.id)) {
+    if (isInvalidString(req.params.id) || isInvalidID(req.params.id.trim())) {
       res.render("error", {
         pageTitle: "Error",
         errorMessage: "You must enter a valid ID!",

@@ -8,7 +8,12 @@ const constructorMethod = (app) => {
   app.use('', movieRoutes);
 
   app.use('*', (_, res) => {
-    res.status(404).json({error: 'Route Not found'});
+    res.render("error", {
+      pageTitle: "Error",
+      errorMessage: "Route Not found!",
+    });
+    res.status(404);
+    return;
   });
 };
 
